@@ -92,7 +92,7 @@ with tf.Session() as sess:
  
     # now plotting the variation of training performance
     plt.plot(range(num_iterations), training_perf)
-    plt.show()    
+    plt.show() 
     
     # we now evaluate the validation accuracy
     print('Validation accuracy: %g' % accuracy.eval(feed_dict={x: mnist.test.images, y: mnist.test.labels}))
