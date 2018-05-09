@@ -3,4 +3,4 @@
 
 ## Deep learning project with TensorFlow API:
 * Build CNN model with MNIST.
-* Apply GAN model to 1-D distribution.
+* Apply GAN model to generate handwritten digits that resemble those found in the MNIST dataset.
