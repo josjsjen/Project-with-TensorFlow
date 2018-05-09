@@ -13,6 +13,7 @@ import matplotlib.pyplot as plt
 
 from data import load_mnist, save_images
 
+
 #################
 ### load data ###
 N, train_images, train_labels, test_images, test_labels = load_mnist()
@@ -229,20 +230,5 @@ for epoch in range(num_epochs):
             print("G loss = {}".format(G_total_loss))
         
         iteration += 1
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
