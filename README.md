@@ -1,4 +1,4 @@
-<img src="https://github.com/josjsjen/Project-with-TensorFlow/Images/blob/master/2FNLTensorFlow.png" width=400 >
+<img src="https://github.com/josjsjen/Project-with-TensorFlow/blob/master/Images/2FNLTensorFlow.png" width=400 >
 <br><br><br>
 
 ## Deep learning project with TensorFlow API:
