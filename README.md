@@ -9,5 +9,6 @@
 Written for Python 2.x.
 
 For the Python dependencies, first install the requirements file:
-
+```bash
 $ pip install -r requirements.txt
+```
