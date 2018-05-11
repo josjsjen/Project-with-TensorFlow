@@ -144,3 +144,11 @@ with tf.Session() as session:
         if step % 10 == 0:
                 print('{}: {:.4f}\t{:.4f}'.format(step, loss_d, loss_g))
 
+                
+                
+####################################################
+######## PART 2: minibatch discrimination ##########
+## Problem: If the generator just produces the mean value of the real data in this simple example, 
+## then it is going to be quite likely to fool the discriminator.
+## Solution: Give the discriminator the ability to examine multiple examples at once -- minibatch discrimination.
+
