@@ -95,7 +95,7 @@ loss_g = tf.reduce_mean(-tf.log(D2))
 def optimizer(loss, var_list):
     initial_learning_rate = 0.005
     decay = 0.90
-    num_decay_steps = 150
+    num_decay_steps = 150  #decay every 150 steps with a base of 0.90:
     batch = tf.Variable(0)
     learning_rate = tf.train.exponential_decay(  # plain GradientDescentOptimizer with exponential learning rate decay
         initial_learning_rate,
@@ -115,8 +115,17 @@ vars = tf.trainable_variables()
 d_params = [v for v in vars if v.name.startswith('D/')]
 g_params = [v for v in vars if v.name.startswith('G/')]
 
+# calculate loss separately
 opt_d = optimizer(loss_d, d_params)
 opt_g = optimizer(loss_g, g_params)
+
+################################
+######### define variable ######
+num_steps=1000
+batch_size=500
+
+data=DataDistribution()
+gen=GeneratorDistribution()
 
 ################################
 ######### train models #########
@@ -124,7 +133,6 @@ with tf.Session() as session:
     tf.initialize_all_variables().run()
 
     for step in xrange(num_steps):
-        # update discriminator
         x = data.sample(batch_size)
         z = gen.sample(batch_size)
         
@@ -135,15 +143,10 @@ with tf.Session() as session:
 
         # update generator
         z = gen.sample(batch_size)
-        session.run([loss_g, opt_g], {
-            z: np.reshape(z, (batch_size, 1))
+        loss_g, _ =session.run([loss_g, opt_g], {
+            z: np.reshape(z, (batch_size, 1))  
         })
-
-
-
-
-
-
-
-
+        
+        if step % 10 == 0:
+                print('{}: {:.4f}\t{:.4f}'.format(step, loss_d, loss_g))
 
